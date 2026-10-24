@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Settings, HelpCircle, Share2, Check, Sparkles } from 'lucide-react';
+import { Settings, HelpCircle, Share2, Check, Download, Smartphone } from 'lucide-react';
 
 export default function Navbar({
   onOpenRules,
   onOpenSettings,
+  onOpenInstall,
   onReturnHome,
-  inGame
+  inGame,
+  isInstalled
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -52,6 +54,18 @@ export default function Navbar({
               className="text-xs px-2.5 py-1.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/[0.05] transition font-medium mr-1"
             >
               Exit to Lobby
+            </button>
+          )}
+
+          {/* In-Website Install App Button (hidden if already opened in installed standalone app) */}
+          {!isInstalled && (
+            <button
+              onClick={onOpenInstall}
+              className="px-2.5 py-1.5 sm:px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 transition flex items-center gap-1.5 text-xs font-semibold pressable"
+              title="Install App to Home Screen"
+            >
+              <Download size={14} />
+              <span className="hidden sm:inline">Install App</span>
             </button>
           )}
 

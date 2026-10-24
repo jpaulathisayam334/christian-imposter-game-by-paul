@@ -1,11 +1,12 @@
 import React from 'react';
-import { Heart, ShieldCheck, FileText, HelpCircle, BookPlus } from 'lucide-react';
+import { ShieldCheck, FileText, HelpCircle, BookPlus, Smartphone } from 'lucide-react';
 
 export default function Footer({
   onOpenPrivacy,
   onOpenTerms,
   onOpenRules,
-  onOpenCustomWords
+  onOpenCustomWords,
+  onOpenInstall
 }) {
   const currentYear = new Date().getFullYear();
 
@@ -32,6 +33,14 @@ export default function Footer({
 
         {/* Center / Right: Legal & Navigation Links */}
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-400">
+          <button
+            onClick={onOpenInstall}
+            className="hover:text-amber-400 transition flex items-center gap-1.5 text-amber-400/90"
+          >
+            <Smartphone size={14} className="text-amber-400" />
+            <span>Install App</span>
+          </button>
+
           <button
             onClick={onOpenPrivacy}
             className="hover:text-amber-400 transition flex items-center gap-1.5"

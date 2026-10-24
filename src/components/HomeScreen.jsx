@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Settings, Users, BookOpen, ShieldAlert, Sparkles, HelpCircle, Share2, Check } from 'lucide-react';
+import { Play, Settings, Users, BookOpen, ShieldAlert, Sparkles, HelpCircle, Share2, Check, Download } from 'lucide-react';
 import { CATEGORIES } from '../data/christianWords';
 
 export default function HomeScreen({
@@ -11,7 +11,9 @@ export default function HomeScreen({
   totalWordsAvailable,
   onStartGame,
   onOpenSettings,
-  onOpenRules
+  onOpenRules,
+  onOpenInstall,
+  isInstalled
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -128,7 +130,7 @@ export default function HomeScreen({
 
         {/* Right Card: Quick Action Center (5 cols on laptop) */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
-          <div className="surface-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-4 flex-1 flex flex-col justify-center">
+          <div className="surface-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-3.5 flex-1 flex flex-col justify-center">
             <button
               onClick={onStartGame}
               className="w-full py-4 sm:py-5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-cinzel font-black text-lg tracking-wider shadow-xl shadow-amber-500/15 flex items-center justify-center gap-2.5 transition pressable"
@@ -152,6 +154,17 @@ export default function HomeScreen({
               <HelpCircle size={16} />
               <span>How To Play & Rules</span>
             </button>
+
+            {/* Install App button on homepage if not already in standalone mode */}
+            {!isInstalled && (
+              <button
+                onClick={onOpenInstall}
+                className="w-full py-3 rounded-2xl bg-amber-500/10 hover:bg-amber-500/15 text-amber-400 font-semibold text-xs tracking-wide flex items-center justify-center gap-2 border border-amber-500/20 transition pressable"
+              >
+                <Download size={15} />
+                <span>Install App on Home Screen</span>
+              </button>
+            )}
           </div>
 
           {/* Quick share button */}

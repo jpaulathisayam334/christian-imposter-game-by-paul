@@ -11,6 +11,7 @@ import RulesModal from './components/RulesModal';
 import CustomWordsModal from './components/CustomWordsModal';
 import PrivacyModal from './components/PrivacyModal';
 import TermsModal from './components/TermsModal';
+import InstallModal from './components/InstallModal';
 import { CHRISTIAN_WORDS, DEFAULT_PLAYERS } from './data/christianWords';
 
 export default function App() {
@@ -23,6 +24,55 @@ export default function App() {
   const [showCustomWords, setShowCustomWords] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
+  const [showInstall, setShowInstall] = useState(false);
+
+  // PWA Install State
+  const [installPrompt, setInstallPrompt] = useState(null);
+  const [isInstalled, setIsInstalled] = useState(false);
+
+  useEffect(() => {
+    // Check if running in standalone display mode (already installed as an app)
+    if (
+      window.matchMedia('(display-mode: standalone)').matches ||
+      window.navigator.standalone === true
+    ) {
+      setIsInstalled(true);
+    }
+
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+
+    const handleAppInstalled = () => {
+      setIsInstalled(true);
+      setInstallPrompt(null);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
+  }, []);
+
+  const handleOpenInstall = () => {
+    if (installPrompt) {
+      // Trigger native install prompt on Android / Chrome directly
+      installPrompt.prompt();
+      installPrompt.userChoice.then(({ outcome }) => {
+        if (outcome === 'accepted') {
+          setIsInstalled(true);
+          setInstallPrompt(null);
+        }
+      });
+    } else {
+      // Show visual guide (for iOS / Safari / manual install)
+      setShowInstall(true);
+    }
+  };
 
   // Persistent Game Configurations
   const [players, setPlayers] = useState(() => {
@@ -207,8 +257,10 @@ export default function App() {
       <Navbar
         onOpenRules={() => setShowRules(true)}
         onOpenSettings={() => setShowSettings(true)}
+        onOpenInstall={handleOpenInstall}
         onReturnHome={handleReturnHome}
         inGame={screen !== 'home'}
+        isInstalled={isInstalled}
       />
 
       {/* Main Dynamic Viewport Container (Fully responsive on Laptop, Tablet, Mobile) */}
@@ -224,6 +276,8 @@ export default function App() {
             onStartGame={handleStartGame}
             onOpenSettings={() => setShowSettings(true)}
             onOpenRules={() => setShowRules(true)}
+            onOpenInstall={handleOpenInstall}
+            isInstalled={isInstalled}
           />
         )}
 
@@ -274,6 +328,7 @@ export default function App() {
         onOpenTerms={() => setShowTerms(true)}
         onOpenRules={() => setShowRules(true)}
         onOpenCustomWords={() => setShowCustomWords(true)}
+        onOpenInstall={handleOpenInstall}
       />
 
       {/* Modals */}
@@ -307,6 +362,14 @@ export default function App() {
       <PrivacyModal isOpen={showPrivacy} onClose={() => setShowPrivacy(false)} />
 
       <TermsModal isOpen={showTerms} onClose={() => setShowTerms(false)} />
+
+      <InstallModal
+        isOpen={showInstall}
+        onClose={() => setShowInstall(false)}
+        installPrompt={installPrompt}
+        onDirectInstall={handleOpenInstall}
+        isInstalled={isInstalled}
+      />
     </div>
   );
 }

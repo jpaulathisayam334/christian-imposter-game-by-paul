@@ -7,6 +7,27 @@
   color-scheme: dark;
 }
 
+/* Global App-Like Behavior: Stop annoying word selection & long-press copy toolbars */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, button, div, span, h1, h2, h3, h4, h5, h6, p, a, label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Allow text inputs and textareas to be clicked and typed into */
+input, textarea {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
 .font-cinzel {
   font-family: 'Cinzel', Georgia, serif;
 }
