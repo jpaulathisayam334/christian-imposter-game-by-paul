@@ -1,47 +1,40 @@
-# ✝️ Imposterd: Christian Edition (Website Game)
+# ✝️ Imposterd: Christian Edition
 
-> A modern, minimal, aesthetic faith-based word deduction and bluffing game created by **Paul Miracle**.
-> Designed for Christian youth groups, Sunday schools, church fellowships, Bible studies, and family gatherings.
-
----
-
-## 🌟 What's New & Key Features
-
-- **Minimal & Aesthetic Design:** Elegant dark slate palette, refined typography, and sleek modern glass surfaces.
-- **3D Card Flip Mechanism:** Smooth 180° 3D card flip with zero jumping or layout shift.
-- **Dedicated Settings Panel:** Easily change players, imposter count, modes, categories, and timers anytime.
-- **Instant Persistence:** All player names, custom words, and configurations automatically save to your browser (`localStorage`) so your game is always ready when you return or share the link.
-- **Full Responsive Design:** Seamlessly adapts to laptops, tablets, and mobile phones with optimized full-screen viewport layouts.
-- **100% Stealth & Fair Play:** Sound effects removed so players nearby cannot discern when an imposter card is revealed.
-- **Rich Biblical Word Catalog:** Over 60+ curated Bible figures, places, events, and theology concepts.
-- **Custom Word Pack Creator:** Add church-specific names, sermon topics, or youth leaders.
-- **Website Legalities & Credits:** Includes full Privacy Policy, Terms & Conditions, and credits for creator **Paul Miracle**.
+> A modern, minimal, and aesthetic faith-based word deduction party game created by **Paul Miracle**.  
+> Designed for Christian youth groups, Sunday schools, church fellowships, Bible studies, and family game nights.
 
 ---
 
-## 🚀 Running Locally
+## 🕊️ About The Game
 
-```powershell
-cd C:\Users\HP\.gemini\antigravity\scratch\christian-imposter-game
-npm run dev
-```
+**Imposterd: Christian Edition** brings believers together for an engaging game of discernment, fellowship, and Biblical knowledge.
 
-Visit: `http://localhost:5173`
+One secret player is the **Imposter** who does not know the secret Holy Word. By listening closely to each clue, testing the testimonies, and bluffing convincingly, players must work together to discern who is the imposter before they escape!
 
 ---
 
-## 🌐 Deploying as a Shareable Website
+## 📖 How To Play
 
-You can deploy this site in under 2 minutes for free:
-1. **Vercel:** `npx vercel`
-2. **Netlify:** `npx netlify deploy --prod --dir=dist`
-3. **GitHub Pages / Firebase Hosting**
+1. **Pass & Turn Card:** Pass the device around. Each player secretly turns their card to reveal the secret Bible word or their identity as the Imposter.
+2. **Give One Clue:** In a circle, each person speaks one word or short clue related to the secret topic.
+3. **Debate & Convict:** Players discuss suspicious clues and vote to uncover the imposter!
+4. **Imposter's Last Stand:** If caught, the imposter gets one chance to guess the holy word to steal the victory!
 
-Once deployed, anyone with your link can open it instantly on any phone, tablet, or laptop and play together with zero installation needed.
+---
+
+## ✨ Features
+
+- **3D Card Flip Mechanism:** Smooth 3D card turn with zero layout shift and complete anti-peeking privacy protection.
+- **Rich Biblical Word Catalog:** Over 60+ hand-curated entries across Old Testament heroes, New Testament apostles, miracles, holy cities, faith theology, and sacred symbols.
+- **3 Game Variations:** Blind Imposter (Classic), Category Hint (Easy), and Undercover Twin-Word mode.
+- **Custom Word Pack Creator:** Easily add your own church names, pastor names, memory verses, or youth group terms.
+- **100% Private & On-Device:** All settings and words are saved securely in your browser with zero data collection or tracking.
+- **Responsive Across All Devices:** Optimized for seamless play on laptops, tablets, and smartphones.
 
 ---
 
 ## 📜 Credits & License
 
-- **Created by:** Paul Miracle
-- **License:** Free community fellowship use. All rights reserved.
+- **Creator & Developer:** Paul Miracle
+- **Bible Quotations:** Scripture taken from the English Standard Version (ESV).
+- **License:** Free for Christian community fellowship, youth ministries, and personal use.
