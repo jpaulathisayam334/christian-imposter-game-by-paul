@@ -28,7 +28,14 @@ export default function App() {
   const [players, setPlayers] = useState(() => {
     try {
       const saved = localStorage.getItem('imposterd_players');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        const oldDefaults = ['Peter', 'John', 'Mary', 'Paul', 'Esther'];
+        const isOldDefault = Array.isArray(parsed) && parsed.length === 5 && parsed.every((p, i) => p === oldDefaults[i]);
+        if (!isOldDefault && Array.isArray(parsed) && parsed.length >= 3) {
+          return parsed;
+        }
+      }
     } catch (e) {}
     return DEFAULT_PLAYERS;
   });

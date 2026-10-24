@@ -640,9 +640,9 @@ export const CHRISTIAN_WORDS = [
 ];
 
 export const DEFAULT_PLAYERS = [
-  'Peter',
-  'John',
-  'Mary',
   'Paul',
-  'Esther'
+  'Grace',
+  'Benita',
+  'Bena',
+  'Ashlin'
 ];
