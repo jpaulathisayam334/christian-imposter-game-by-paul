@@ -1,23 +1,24 @@
 {
-  "short_name": "Imposterd Faith",
+  "short_name": "Imposterd",
   "name": "Imposterd: Christian Edition",
+  "description": "The Bible & Faith Party Word Game by Paul Miracle",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192' fill='%23d4a457'><rect width='192' height='192' rx='40' fill='%230b1120'/><circle cx='96' cy='96' r='60' stroke='%23d4a457' stroke-width='8' fill='none'/><path d='M96 50v92M60 85h72' stroke='%23d4a457' stroke-width='8' stroke-linecap='round'/></svg>",
+      "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23d4a457'><rect width='512' height='512' rx='100' fill='%230b1120'/><circle cx='256' cy='256' r='160' stroke='%23d4a457' stroke-width='20' fill='none'/><path d='M256 130v252M160 226h192' stroke='%23d4a457' stroke-width='20' stroke-linecap='round'/></svg>",
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "start_url": "/",
-  "background_color": "#0b1120",
-  "theme_color": "#0b1120",
+  "background_color": "#070a14",
+  "theme_color": "#070a14",
   "display": "standalone",
   "orientation": "portrait"
 }
